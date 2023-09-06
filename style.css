@@ -8,6 +8,8 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
     transition: .5s;
 }
 
@@ -20,6 +22,8 @@ main {
     background-color:#3a3a3a;
     color: #e6e6e6;
     overflow-x: hidden;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
     transition: .5s;
 }
 
@@ -39,6 +43,8 @@ main {
 .file {
     border: 1px solid white;
     color: #e6e6e6;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
     transition: .5s;
     padding: 5px;
     margin: 5px;
@@ -88,6 +94,8 @@ main {
     border-radius: 6px;
     color: white;
     padding: 5px 10px;
+    -webkit-transition: 1s, transform 0.2s;
+    -moz-transition: 1s, transform 0.2s;
     transition: 1s, transform 0.2s;
 }
 
