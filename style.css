@@ -1,0 +1,201 @@
+html,body {
+    height: 100%;
+    margin: 0;
+    font-family: "Verdana", "Helvetica", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: .5s;
+}
+
+#sidebar {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#3a3a3a;
+    color: #e6e6e6;
+    overflow-x: hidden;
+    transition: .5s;
+}
+
+#sidebar h2 {
+    color: white;
+    margin-left: 10px;
+}
+
+.sbon {
+    width: 250px !important;
+}
+
+.mainon {
+    margin-left: 250px;
+}
+
+.file {
+    border: 1px solid white;
+    color: #e6e6e6;
+    transition: .5s;
+    padding: 5px;
+    margin: 5px;
+}
+
+.file:hover{
+    background-color: #e6e6e6;
+    color: #3a3a3a;
+    border: 1px solid black;
+}
+
+.open {
+    background-color: #e6e6e6;
+    color: #3a3a3a;
+    border: 1px solid black;
+}
+
+#plus {
+    margin-left: 5px;
+    font-size: 23px !important;
+}
+
+#help{
+    font-size: 23px !important;
+}
+
+#delete:hover {
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+}
+
+#toolbar-section {
+    background-color:#3a3a3a;
+    color: #e6e6e6;
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 5px;
+}
+
+.btn {
+    background-color: #3a3a3a;
+    font-size: 20px;
+    border: 0.5px solid #4d4d4d;
+    border-radius: 6px;
+    color: white;
+    padding: 5px 10px;
+    transition: 1s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #f3f3f3;
+    color:#3a3a3a;
+}
+
+.b:hover {
+    font-weight: bolder;
+}
+
+.i:hover {
+    font-style: italic;
+}
+
+.s:hover {
+    text-decoration: line-through;
+}
+
+.image {
+    background-image: none;
+    filter: saturate(0);
+    transition: 2s, transform 0.2s;
+}
+
+.image:hover {
+    background-image: linear-gradient(#00c4f6,#00cb22);
+    filter: saturate(2);
+}
+
+
+
+#toolbar-section button:active {
+    transform: scale(0.8);
+}
+
+
+
+#work-section {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px){
+    #work-section {
+        flex-direction: column;
+    }
+}
+
+#editor-section {
+    flex: 1 1 50%;
+    padding: 5px;
+}
+
+#editor{
+    background: transparent;
+    font-family: "Verdana", "Helvetica", sans-serif;
+    width: 100%;
+    height: 99%;
+    resize: none;
+    border: none;
+    overflow: auto;
+    outline: none;
+}
+
+#preview-section {
+    font-family: "Verdana", "Helvetica", sans-serif;
+    background-color: #f3f3f3;
+    flex: 1 1 50%;
+    padding: 5px;
+    overflow: auto;
+}
+
+#preview-section :is(h1,h2,h3) {
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #5d5d5d;
+    margin: 1em 0;
+    padding: 0;
+}
