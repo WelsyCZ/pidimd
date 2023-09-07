@@ -339,6 +339,7 @@ const buttonsound = new Audio("buttonsound.ogg");
 
 // Add click event listener to hamburger button that opens sidebar
 buttons[0].addEventListener("click", () => {
+    alert("BUTTON TOUCHED");
     buttonsound.play();
     sidebar.classList.toggle("sbon");
     main.classList.toggle("mainon");
