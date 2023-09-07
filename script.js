@@ -1,11 +1,9 @@
-alert("hello");
 const editor = document.querySelector("#editor");
 const preview = document.querySelector("#preview-section");
 const sidebar = document.querySelector("#sidebar");
 const nav = document.querySelector("#nav");
 const main = document.querySelector("#main");
 let mdflist;
-console.log("script start");
 // PARSER ------------------------
 // regex rules paired with html which will replace the match
 const headlineRules = [
@@ -79,7 +77,6 @@ function parseMD(text){
  * into html, if not specified, the editor content will be used
  */
 function render(text = null){
-    console.log("render called");
     if(!text) text = $("#editor").val();
     let parsed = parseMD(text);
     preview.innerHTML = parsed;
@@ -341,8 +338,6 @@ const buttonsound = new Audio("buttonsound.ogg");
 
 // Add click event listener to hamburger button that opens sidebar
 buttons[0].addEventListener("click", () => {
-    alert("BUTTON TOUCHED");
-    console.log("button clicked")
     buttonsound.play();
     sidebar.classList.toggle("sbon");
     main.classList.toggle("mainon");
@@ -433,7 +428,6 @@ window.onload = function() {
     //     $('#editor').val(welcometext);
     // }
     // render();
-    console.log("website loaded");
     let files = localStorage.getItem("files");
     if(files){
         mdflist = new Filelist(JSON.parse(files));
