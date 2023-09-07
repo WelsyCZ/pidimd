@@ -326,7 +326,6 @@ function populateSidebar(){
             mdflist.openFile(e.target.innerText);
             populateSidebar();
         }
-        div.addEventListener("touchstart", handler);
         div.addEventListener("click", handler);
         nav.appendChild(div);
     }
@@ -339,11 +338,6 @@ function populateSidebar(){
 const buttonsound = new Audio("buttonsound.ogg");
 
 // Add click event listener to hamburger button that opens sidebar
-buttons[0].addEventListener("touchstart", () => {
-    buttonsound.play();
-    sidebar.classList.toggle("sbon");
-    main.classList.toggle("mainon");
-});
 buttons[0].addEventListener("click", () => {
     buttonsound.play();
     sidebar.classList.toggle("sbon");
@@ -352,11 +346,6 @@ buttons[0].addEventListener("click", () => {
 // Add click event listeners to all toolbar buttons (bold, italic...)
 for(let i = 1; i < 9; ++i){
     const [pref,suff] = wrappers[i-1];
-    buttons[i].addEventListener("touchstart", () => {
-        buttonsound.play();
-        wrapSelection(pref, suff);
-        render();
-    });
     buttons[i].addEventListener("click", () => {
         buttonsound.play();
         wrapSelection(pref, suff);
@@ -364,13 +353,6 @@ for(let i = 1; i < 9; ++i){
     });
 }
 // Add click event listener to the plus button (creates new file)
-document.getElementById("plus").addEventListener("touchstart", () => {
-    buttonsound.play();
-    mdflist.newFile();
-    let fnames = mdflist.getFilenames();
-    mdflist.openFile(fnames[fnames.length-1]);
-    populateSidebar();
-});
 document.getElementById("plus").addEventListener("click", () => {
     buttonsound.play();
     mdflist.newFile();
@@ -407,7 +389,6 @@ let rnm = () => {
     open.appendChild(inptext);
     inptext.select();
 }
-document.getElementById("rename").addEventListener("touchstart", rnm);
 document.getElementById("rename").addEventListener("click", rnm);
 // Add event listener to the delete button, there is a confirmation
 let dlt = () => {
@@ -418,7 +399,6 @@ let dlt = () => {
         populateSidebar();
     }
 };
-document.getElementById("delete").addEventListener("touchstart", dlt);
 document.getElementById("delete").addEventListener("click", dlt);
 // Add event listener to the help button
 let hlp = () => {
@@ -426,7 +406,6 @@ let hlp = () => {
     mdflist.openFile(mdflist.filenames[mdflist.filenames.length-1]);
     populateSidebar();
 };
-document.getElementById("help").addEventListener("touchstart", hlp);
 document.getElementById("help").addEventListener("click", hlp);
 
 // Render any changes in the editor text area immediately
