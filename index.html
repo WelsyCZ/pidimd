@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="fav.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="script.js" defer></script> 
+</head>
+<body>
+    <main id="main">
+        <section id="toolbar-section">
+            <button type="button" class="btn">☰</button>
+            <button type="button" class="btn b">B</button>
+            <button type="button" class="btn i">I</button>
+            <button type="button" class="btn s">S</button>
+            <button type="button" class="btn">H1</button>
+            <button type="button" class="btn">H2</button>
+            <button type="button" class="btn">H3</button>
+            <button type="button" class="btn">🔗</button>
+            <button type="button" class="btn image">IMG</button>
+        </section>
+        <section id="work-section">
+            <section id="editor-section">
+                <textarea id="editor" autocomplete="off" autofocus></textarea>
+            </section>
+            <section id="preview-section">
+            </section>
+        </section>
+    </main>
+    <aside id="sidebar">
+        <h2>Markdown Files</h2>
+        <button type="button" class="btn" id="plus">+</button>
+        <button type="button" class="btn" id="rename">✎</button>
+        <button type="button" class="btn" id="delete">🗑</button>
+        <button type="button" class="btn" id="help">?</button>
+        <hr>
+        <nav id="nav"></nav>
+    </aside>
+
+</body>
+</html>
