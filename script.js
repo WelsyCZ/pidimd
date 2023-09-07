@@ -1,3 +1,4 @@
+alert("hello");
 const editor = document.querySelector("#editor");
 const preview = document.querySelector("#preview-section");
 const sidebar = document.querySelector("#sidebar");
