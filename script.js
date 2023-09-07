@@ -318,14 +318,16 @@ function populateSidebar(){
         div.className = "file";
         if(file.open) div.classList.add("open");
         div.innerText = file.getName();
-        div.addEventListener("click", (e) => {
+        let handler = (e) => {
             // ignore clicks into the input field
             if(e.target.tagName == "INPUT"){
                 return;
             } 
             mdflist.openFile(e.target.innerText);
             populateSidebar();
-        });
+        }
+        div.addEventListener("click", handler);
+        div.addEventListener("touchstart", handler);
         nav.appendChild(div);
     }
 }
@@ -342,10 +344,20 @@ buttons[0].addEventListener("click", () => {
     sidebar.classList.toggle("sbon");
     main.classList.toggle("mainon");
 });
+buttons[0].addEventListener("touchstart", () => {
+    buttonsound.play();
+    sidebar.classList.toggle("sbon");
+    main.classList.toggle("mainon");
+});
 // Add click event listeners to all toolbar buttons (bold, italic...)
 for(let i = 1; i < 9; ++i){
     const [pref,suff] = wrappers[i-1];
     buttons[i].addEventListener("click", () => {
+        buttonsound.play();
+        wrapSelection(pref, suff);
+        render();
+    });
+    buttons[i].addEventListener("touchstart", () => {
         buttonsound.play();
         wrapSelection(pref, suff);
         render();
@@ -359,6 +371,13 @@ document.getElementById("plus").addEventListener("click", () => {
     mdflist.openFile(fnames[fnames.length-1]);
     populateSidebar();
 });
+document.getElementById("plus").addEventListener("touchstart", () => {
+    buttonsound.play();
+    mdflist.newFile();
+    let fnames = mdflist.getFilenames();
+    mdflist.openFile(fnames[fnames.length-1]);
+    populateSidebar();
+});
 /**
  * Add event listener to the rename button
  * 
@@ -366,7 +385,7 @@ document.getElementById("plus").addEventListener("click", () => {
  * the rename only goes through if enter is pressed, escape or
  * clicking elsewhere cancels it
  */
-document.getElementById("rename").addEventListener("click", () => {
+let rnm = () => {
     let open = document.getElementsByClassName("open")[0];
     let oldname = open.innerHTML;
     open.innerHTML = "";
@@ -387,22 +406,28 @@ document.getElementById("rename").addEventListener("click", () => {
     });
     open.appendChild(inptext);
     inptext.select();
-});
+}
+document.getElementById("rename").addEventListener("click", rnm);
+document.getElementById("rename").addEventListener("touchstart", rnm);
 // Add event listener to the delete button, there is a confirmation
-document.getElementById("delete").addEventListener("click", () => {
+let dlt = () => {
     let name = document.getElementsByClassName("open")[0].innerText;
     let rly = confirm(`Do you really want to delete the current file called '${name}'?`);
     if(rly) {
         mdflist.deleteFile(name);
         populateSidebar();
     }
-});
+};
+document.getElementById("delete").addEventListener("click", dlt);
+document.getElementById("delete").addEventListener("touchstart", dlt);
 // Add event listener to the help button
-document.getElementById("help").addEventListener("click", () => {
+let hlp = () => {
     mdflist.newFile("Tutorial", tutorial);
     mdflist.openFile(mdflist.filenames[mdflist.filenames.length-1]);
     populateSidebar();
-});
+};
+document.getElementById("help").addEventListener("click", hlp);
+document.getElementById("help").addEventListener("touchstart", hlp);
 
 // Render any changes in the editor text area immediately
 editor.addEventListener("input", e => {
