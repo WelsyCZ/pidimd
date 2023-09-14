@@ -335,6 +335,7 @@ function populateSidebar(){
  * @type {Audio}
  */
 const buttonsound = new Audio("buttonsound.ogg");
+buttonsound.volume = 0.1;
 
 // Add click event listener to hamburger button that opens sidebar
 buttons[0].addEventListener("click", () => {
